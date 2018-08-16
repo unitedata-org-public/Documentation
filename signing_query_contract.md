@@ -29,7 +29,7 @@
 
 ### 合约代码
 
-合约相关文件路径：[https://github.com/unitedata-org/Documentation/tree/master/contract](https://github.com/unitedata-org/Documentation/tree/master/contract)
+合约相关文件路径：[https://github.com/unitedata-org-public/Documentation/tree/master/contract](https://github.com/unitedata-org-public/Documentation/tree/master/contract)
 
 此合约代码具有较好的通用性，如果业务逻辑符合可以直接使用上面文件夹中的wasm和abi文件进行数据合约部署。
 
