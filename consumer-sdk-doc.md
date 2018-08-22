@@ -22,67 +22,137 @@
 <dependency>
     <groupId>org.unitedata</groupId>
     <artifactId>ud-data-consumer-sdk</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-SNAPSHOT</version>
 </dependency>
 
 /**
  * @author baimao
- * @create 2018/8/7
+ * @create 2018/8/22
  */
-public class DataClientTest {
-    
-    // 日志组件
-    private static final Logger logger = new MyLogger();
-    // eos 合约访问账户
+public class DataQueryClientTest {
+
+    private static final String charset = "utf-8";
+    // eos 账户名称
     private static final String account = "";
-    // eos 合约访问私钥
+    // eos 账户私钥
     private static final String privateKey = "";
-    // eos 合约访问地址
-    private static final String contractApi = "";
-    // eos 合约 id
-    private static final String contractId = "";
-    // 匿名查询数据
-    private static final String anonymousValue = "";
-    // 数据查询参数
-    private final Map<String, Object> parameters = new HashMap<>();
-    
+    // eos 访问地址
+    private static final String contractUri = "http://preview.unitedata.link/v1";
+    // 交易订单本地仓库，用来在本地保存交易订单的仓库
+    private static final TransactionRepository localTransactionRepository
+            = new LocalTransactionRepository();
+    // 自定义日志组件
+    private static final Logger customLogger
+            = new CustomLogger();
+    // 合约地址
+    private static final String contractId = "合约地址";
+    // 交易 id
+    private static final String transactionId = "交易 id";
+    // 交易模型
+    private static final TransactionMode mode = TransactionMode.packageTicks;
+    // 查询参数
+    private static final Map<String, Object> queryParameters
+            = new HashMap<>();
+    // 数据提供方筛选器
+    private static final Predicate<DataProducer> producerFilter = null;
+
     @Test
-    public void testNewQuery(){
-        try {
-            DataResult result
-                    = DataClient.newQuery(account, privateKey, contractApi)
-                    .setAnonymousValue(anonymousValue)
-                    .setLogger(logger)
-                    .query(contractId, parameters);
-        } catch (Exception ignored) { }
+    public void QueryTest(){
+
+        DataQueryClient.newProtocol(account, privateKey)
+                // [必填] 设置 eos 访问地址
+                .setContractUri(contractUri)
+                // [可选] 设置 日志组件
+                .setLogger(customLogger)
+                // [可选] 设置 http[s] 文本编码器，默认 utf-8
+                .setHttpEncoding(charset)
+                // [可选] 设置 预处理订单数量，默认 2
+                .setMinPreviousTransactionSize(2)
+                // [可选] 设置 交易订单本地仓库，默认 null
+                .setTransactionRepository(localTransactionRepository)
+                // [可选] 设置 当前批次交易的次数，或者有效天数，默认 1
+                .setTransactionTicks(1)
+                // 基于默认的按次计费的模式的交易订单的查询方式，交易订单可选
+//                .query(contractId, transactionId, queryParameters)
+                // 基于指定交易模式的交易订单的查询方式，交易订单可选
+//                .query(mode, contractId, transactionId, queryParameters)
+                // 基于指定交易模式，以及主动筛选数据提供方的交易订单的查询方式，交易订单可选
+                .query(mode, contractId, transactionId, queryParameters, producerFilter);
     }
-    
-    private static final class MyLogger implements Logger{
-        private static final org.slf4j.Logger logger = LoggerFactory.getLogger(MyLogger.class);
-        
+
+    /**
+     * 自定义日志组件
+     */
+    private static final class CustomLogger implements Logger{
+
+        private static final org.slf4j.Logger log = LoggerFactory.getLogger(CustomLogger.class);
+
         @Override
         public void info(String message) {
-            logger.info(message);
+            log.info(message);
         }
 
         @Override
         public void warn(String message) {
-            logger.warn(message);
+            log.warn(message);
         }
 
         @Override
         public void debug(String message) {
-            logger.debug(message);
+            log.debug(message);
         }
 
         @Override
         public void error(String message) {
-            logger.error(message);
+            log.error(message);
         }
 
         @Override
         public void error(Throwable cause) {
-            logger.error(cause.getMessage(), cause);
+            log.error(cause.getMessage(), cause);
+        }
+    }
+
+    /**
+     * 交易订单本地仓库，用来在本地保存交易订单的仓库
+     * @author baimao
+     */
+    private static final class LocalTransactionRepository implements TransactionRepository{
+
+        @Override
+        public void putTransaction(DataProducer producer,
+                                   Transaction transaction, DataQueryProtocol protocol) {
+
+        }
+
+        @Override
+        public void putContract(DataContract contract) {
+
+        }
+
+        @Override
+        public DataContract fetchContract(String contractId,
+                                          DataQueryProtocol protocol) {
+            return null;
+        }
+
+        @Override
+        public Transaction fetchOne(String contractId,
+                                    String transactionId, DataQueryProtocol protocol) {
+            return null;
+        }
+
+        @Override
+        public Transaction fetchProducerAvailableTransaction(DataProducer producer,
+                                                             DataContract contract,
+                                                             DataQueryProtocol protocol) {
+            return null;
+        }
+
+        @Override
+        public int countProducerAvailableTransaction(DataProducer producer,
+                                                     DataContract contract, DataQueryProtocol protocol) {
+            return 0;
         }
     }
 }
