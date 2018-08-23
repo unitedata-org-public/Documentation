@@ -19,11 +19,6 @@
 ## 如何使用 SDK
 
 ``` java
-<dependency>
-    <groupId>org.unitedata</groupId>
-    <artifactId>ud-data-consumer-sdk</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
 
 /**
  * @author baimao
