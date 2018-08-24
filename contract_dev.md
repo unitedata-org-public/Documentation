@@ -13,3 +13,4 @@
 			* 将统计值作为输出，返回到sdk端或作为多方计算的输入
 	* [合约模型开发说明](model-calc-sdk-doc.md)
 4. [单次查询数据合约](signing_query_contract.md)
+5. [批量合约](batch_data_contract.md)
