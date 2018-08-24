@@ -60,5 +60,3 @@ result | string | 订单查询结果
 
 __require_auth : prov__
 
-### 3. Tables
-
