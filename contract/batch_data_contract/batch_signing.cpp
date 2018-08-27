@@ -80,7 +80,7 @@ namespace unitedata {
 
         auto prov_itr = _providers.find(name);
         eosio_assert(prov_itr == _providers.end() , "account already exist");
-        _providers.emplace(_self, [&]( auto& p ) {
+        _providers.emplace(name, [&]( auto& p ) {
             p.name = name;
             p.create_time = now();
             p.status = 0;
@@ -114,7 +114,7 @@ namespace unitedata {
 
         auto dmd_itr = _demandsides.find(name);
         eosio_assert(dmd_itr == _demandsides.end() , "account already exist");
-        _demandsides.emplace(_self, [&]( auto& d ) {
+        _demandsides.emplace(name, [&]( auto& d ) {
             d.name = name;
             d.finished_order_count = 0;
             d.canceled_order_count = 0;

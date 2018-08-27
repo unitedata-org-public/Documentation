@@ -6121,11 +6121,6 @@
    )
    (i32.const 736)
   )
-  (set_local $10
-   (i64.load
-    (get_local $0)
-   )
-  )
   (call $eosio_assert
    (i64.eq
     (i64.load
@@ -6226,7 +6221,7 @@
       (get_local $5)
      )
      (i64.const -5914995264560562176)
-     (get_local $10)
+     (get_local $1)
      (tee_local $8
       (i64.load
        (get_local $6)
@@ -15495,11 +15490,6 @@
    )
    (i32.const 736)
   )
-  (set_local $10
-   (i64.load
-    (get_local $0)
-   )
-  )
   (call $eosio_assert
    (i64.eq
     (i64.load
@@ -15600,7 +15590,7 @@
       (get_local $11)
      )
      (i64.const 5378540021207445504)
-     (get_local $10)
+     (get_local $1)
      (tee_local $8
       (i64.load
        (get_local $6)
