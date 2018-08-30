@@ -6,7 +6,7 @@
 
 ## SDK 实现结构
 
-![未命名文件-6](images/sdk_class.png)
+![未命名文件-6](images/consumer-sdk-client.png)
 
 如上图所示，SDK 主要是围绕以上三个类型展开：
 
