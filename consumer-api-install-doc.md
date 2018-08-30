@@ -23,7 +23,6 @@
 * password=合约访问账户密码
 * privateKey=合约访问账户私钥
 * contractApi=合约 API 地址
-* contractResolver=合约处理器类型，默认使用 eos 合约处理器
 
 数据服务的配置信息通过三种方式获取，优先级依次提高，操作系统环境变量的优先级最高：
 
