@@ -6,13 +6,15 @@
 
 ## 如何部署
 
-* 自行搭建 tomcat 服务器
-* [下载数据服务war包](https://github.com/unitedata-org/UniteData/tree/master/ud-data-consumer-server)
-* 将下载的 war 包部署到 tomcat 服务器中
-* 启动 tomcat 服务器
+* 自行搭建服务器
+* 安装 jdk，版本 1.8 +
+* [下载数据服务 jar 包](https://github.com/unitedata-org-public/UD-Release/tree/master/ud-data-consumer-sdk)
+* 解压包文件到指定的路径，并配置参数，具体配置请查看数据服务配置
+* 使用 jdk 运行下载的 jar 包
 * 打开浏览器，输入地址 http://{域名}/swagger-ui.html，看到下图
 
-![WX20180807-170125_2x](images/WX20180807-170125_2x.png)
+png
+![WX20180807-170125_2x](images/WX20180830-163415@2x.)
 
 ## 数据服务配置
 
