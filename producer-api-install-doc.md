@@ -6,13 +6,13 @@
 
 ## 如何部署
 
-* 自行搭建 tomcat 服务器
-* [下载数据服务 war 包](https://github.com/unitedata-org/UniteData/tree/master/ud-data-producer-server)
+* 自行搭建 tomcat 服务器，版本 7.0+
+* [下载数据服务 jar 包](https://github.com/unitedata-org-public/UD-Release/tree/master/ud-data-producer-server)
 * 将下载的 war 包部署到 tomcat 服务器中
 * 启动 tomcat 服务器
 * 打开浏览器，输入地址 http://{域名}/swagger-ui.html，看到下图
 
-![WX20180807-172916_2x](images/WX20180807-172916_2x.png)
+![WX20180807-172916_2x](WX20180830-162713@2x.png)
 
 ## 数据服务配置
 
