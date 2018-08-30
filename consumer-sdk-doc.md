@@ -167,12 +167,6 @@ public class DataQueryClientTest {
     private static final String privateKey = "5KAzMoo9ABgwfURJ3ihLaysPUCWN3CDLCP7ZYjVFPHg7hSfy6gG";
     // eos 访问地址
     private static final String contractUri = "http://preview.unitedata.link/v1";
-    // 交易订单本地仓库，用来在本地保存交易订单的仓库
-    private static final TransactionRepository localTransactionRepository
-            = new LocalTransactionRepository();
-    // 自定义日志组件
-    private static final Logger customLogger
-            = new CustomLogger();
     // 合约地址
     private static final String contractId = "dd1yraw5vlfw";
     // 交易 id
