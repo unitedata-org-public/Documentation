@@ -20,10 +20,8 @@
 数据服务可配置内容：
 
 * account=合约访问账户
-* password=合约访问账户密码
 * privateKey=合约访问账户私钥
 * contractApi=合约 API 访问地址
-* contractResolver=合约处理器类型，默认使用 eos 合约处理器
 * edsApi=企业内部系统 API 访问地址
 * multiServiceApi=当前节点多方计算 API 访问地址
 * timeoutRead=一次多方计算网络数据读取超时时间，单位毫秒。默认 5000
