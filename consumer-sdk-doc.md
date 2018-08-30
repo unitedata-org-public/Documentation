@@ -148,6 +148,25 @@
      * @return 返回当前协议对象
      */
     public DataQueryProtocol disableDataProducerFilter()
+    
+    /**
+     * 执行查询操作，并获得查询结果
+     * @param mode 交易模型
+     * @param contractId 合约 id
+     * @param transactionId 交易 id
+     * @param queryParameters 查询参数
+     * @return 返回查询结果
+     */
+    public Object query(TransactionMode mode, String contractId, String transactionId, Map<String, Object> queryParameters)
+
+    /**
+     * 按次交易执行查询操作，并获得查询结果
+     * @param contractId 合约 id
+     * @param transactionId 交易 id
+     * @param queryParameters 查询参数
+     * @return 返回查询结果
+     */
+    public Object query(String contractId, String transactionId, Map<String, Object> queryParameters)
 ```
 
 ## 如何使用 SDK
