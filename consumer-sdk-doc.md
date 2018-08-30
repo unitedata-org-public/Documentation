@@ -8,7 +8,147 @@
 
 ![未命名文件-6](images/consumer-sdk-class.png)
 
-如上图所示，SDK 主要是围绕以上两个类型展开：
+> 类型 DataQueryClient
+
+``` d
+定义数据查询的实现方式。过程如下：
+
+1，创建一个新的 DataQueryClient 类型实例
+2，创建 DataQueryClient 对象的数据查询协议 DataQueryProtocol 类型的实例
+3，基于 DataQueryProtocol 的内容执行查询
+```
+
+> 类型 DataQueryProtocol
+
+``` d
+定义一次查询所需要的相关配置内容。详细内容如下：
+
+    /**
+     * 设置合约 uri 访问地址
+     * @param contractUri 合约 uri 地址
+     * @return 返回当前协议
+     */
+    public DataQueryProtocol setContractUri(String contractUri)
+
+    /**
+     * 设置自定义交易订单仓库
+     * @param transactionRepository 交易订单仓库
+     * @return 返回当前协议对象
+     */
+    public DataQueryProtocol setTransactionRepository(TransactionRepository transactionRepository)
+
+    /**
+     * 设置自定义合约处理器
+     * @param dataContractHandler 合约处理器
+     * @return 返回当前协议对象
+     */
+    public DataQueryProtocol setDataContractHandler(DataContractHandler dataContractHandler)
+
+    /**
+     * 设置自定义交易订单 id 生成器
+     * @param transactionIdentityBuilder 一个交易订单 id 生成器
+     * @return 返回当前协议对象
+     */
+    public DataQueryProtocol setTransactionIdentityBuilder(
+            TransactionIdentityBuilder transactionIdentityBuilder)
+
+    /**
+     * 设置 http[s] 连接超时时间
+     * @param timeoutHttpConnect 超时时间
+     * @return 返回当前协议对象
+     */
+    public DataQueryProtocol setTimeoutHttpConnect(int timeoutHttpConnect)
+
+    /**
+     * 设置 http[s] 流数据读取超时时间
+     * @param timeoutHttpRead 超时时间，单位毫秒
+     * @return 返回当前协议对象
+     */
+    public DataQueryProtocol setTimeoutHttpRead(int timeoutHttpRead)
+
+    /**
+     * 设置 http[s] 内容编码方式
+     * @param httpEncoding 内容编码方式名称
+     * @return 返回当前协议对象
+     */
+    public DataQueryProtocol setHttpEncoding(String httpEncoding)
+
+    /**
+     * 设置自定义日志
+     * @param logger 日志处理器
+     * @return 返回当前协议对象
+     */
+    public DataQueryProtocol setLogger(Logger logger)
+
+    /**
+     * 设置混淆数据数量
+     * @param obfuscateSize 混淆数据数量
+     * @return 返回当前协议对象
+     */
+    public DataQueryProtocol setObfuscateSize(int obfuscateSize)
+
+    /**
+     * 设置混淆数据字段明恒
+     * @param obfuscateField 混淆数据字段名称
+     * @return 返回当前协议对象
+     */
+    @Deprecated
+    public DataQueryProtocol setObfuscateField(String obfuscateField)
+
+    /**
+     * 设置数据混淆器
+     * @param dataObfuscator 一个数据混淆器
+     * @return 返回当前协议对象
+     */
+    public DataQueryProtocol setDataObfuscator(DataObfuscator dataObfuscator)
+
+    /**
+     * 设置基于时间的交易有效天数，或者基于次数的有效交易次数
+     * @param transactionTicks 基于时间的交易有效天数，或者基于次数的有效交易次数
+     * @return 返回当前协议对象
+     */
+    public DataQueryProtocol setTransactionTicks(int transactionTicks)
+
+    /**
+     * 设置最小预处理交易数量
+     * @param minPreviousTransactionSize 最小预处理交易数量
+     * @return 返回当前协议独享
+     */
+    public DataQueryProtocol setMinPreviousTransactionSize(int minPreviousTransactionSize)
+
+    /**
+     * 启用匿踪查询
+     * @param anonymousKeys 一组匿踪查询的 key
+     * @return 返回当前协议对象
+     */
+    public DataQueryProtocol enableAnonymousQuery(String... anonymousKeys)
+
+    /**
+     * 禁用匿踪查询
+     * @return 返回当前协议对象
+     */
+    public DataQueryProtocol disableAnonymousQuery()
+
+    /**
+     * 设置一组匿踪查询的 key
+     * @param anonymousKeys 一组匿踪查询的 key
+     * @return 返回当前协议对象
+     */
+    private DataQueryProtocol setAnonymousKeys(String... anonymousKeys)
+
+    /**
+     * 启用数据提供方过滤器
+     * @param filterPredicate 数据提供方过滤条件
+     * @return 返回当前协议对象
+     */
+    public DataQueryProtocol enableDataProducerFilter(Predicate<DataProducer> filterPredicate)
+
+    /**
+     * 禁用数据提供方过滤器
+     * @return 返回当前协议对象
+     */
+    public DataQueryProtocol disableDataProducerFilter()
+```
 
 ## 如何使用 SDK
 
@@ -70,130 +210,6 @@ public class DataQueryClientTest {
         }
         catch (Exception cause){
             cause.printStackTrace();
-        }
-    }
-
-    /**
-     * 自定义日志组件
-     *
-     * {@code
-     *  Logger log = new CustomLogger();
-     *  DataQueryClient.newProtocol(account, privateKey).setLogger(log);
-     * }
-     */
-    private static final class CustomLogger implements Logger{
-
-        private static final org.slf4j.Logger log = LoggerFactory.getLogger(CustomLogger.class);
-
-        @Override
-        public void info(String message) {
-            log.info(message);
-        }
-
-        @Override
-        public void warn(String message) {
-            log.warn(message);
-        }
-
-        @Override
-        public void debug(String message) {
-            log.debug(message);
-        }
-
-        @Override
-        public void error(String message) {
-            log.error(message);
-        }
-
-        @Override
-        public void error(Throwable cause) {
-            log.error(cause.getMessage(), cause);
-        }
-    }
-
-    /**
-     * 交易订单本地仓库，用来在本地保存交易订单的仓库
-     *
-     * {@code
-     *  TransactionRepository rep = new LocalTransactionRepository();
-     *  DataQueryClient.newProtocol(account, privateKey).setTransactionRepository(rep);
-     * }
-     *
-     * @author baimao
-     */
-    private static final class LocalTransactionRepository implements TransactionRepository{
-
-        /**
-         * 将指定的数据交易内容放到当前仓库
-         * @param producer 数据生产则
-         * @param transaction 交易订单内容
-         * @param protocol 数据查询协议
-         */
-        @Override
-        public void putTransaction(DataProducer producer,
-                                   Transaction transaction, DataQueryProtocol protocol) {
-
-        }
-
-        /**
-         * 将指定的数据协议存储到当前仓库
-         * @param contract 合约
-         */
-        @Override
-        public void putContract(DataContract contract) {
-
-        }
-
-        /**
-         * 获取当前仓库内指定的合约内容
-         * @param contractId 合约 id
-         * @param protocol 数据查询协议
-         * @return 返回当前仓库内指定的合约内容
-         */
-        @Override
-        public DataContract fetchContract(String contractId,
-                                          DataQueryProtocol protocol) {
-            return null;
-        }
-
-        /**
-         * 获取一个指定合约指定交易的交易
-         * @param contractId 合约 id
-         * @param transactionId 交易 id
-         * @param protocol 数据查询协议
-         * @return 返回一个指定合约指定交易的交易
-         */
-        @Override
-        public Transaction fetchOne(String contractId,
-                                    String transactionId, DataQueryProtocol protocol) {
-            return null;
-        }
-
-        /**
-         * 获取一个指定合约的指定数据生产者的可用交易
-         * @param producer 数据生产者
-         * @param contract 合约
-         * @param protocol 数据查询协议
-         * @return 返回一个指定合约的指定数据生产者的可用交易
-         */
-        @Override
-        public Transaction fetchProducerAvailableTransaction(DataProducer producer,
-                                                             DataContract contract,
-                                                             DataQueryProtocol protocol) {
-            return null;
-        }
-
-        /**
-         * 可用指定合约和指定数据生产者的交易数量
-         * @param producer 数据生产者
-         * @param contract 合约
-         * @param protocol 数据查询协议
-         * @return 返回指定合约和指定数据生产者的交易数量
-         */
-        @Override
-        public int countProducerAvailableTransaction(DataProducer producer,
-                                                     DataContract contract, DataQueryProtocol protocol) {
-            return 0;
         }
     }
 }
