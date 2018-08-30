@@ -6,15 +6,9 @@
 
 ## SDK 实现结构
 
-![未命名文件-6](images/consumer-sdk-client.png)
+![未命名文件-6](images/consumer-sdk-class.png)
 
-如上图所示，SDK 主要是围绕以上三个类型展开：
-
-类型 DataClient 声明了数据客户端的基本功能。DataClient 使用配置上下文中的描述信息来实现数据处理的业务功能。
-
-类型 DataQueryOptions 声明了数据处理业务功能所需要的所有相关配置信息，它需要依赖 DataClient 类型，并通过 DataClient 类型的实例来得到实例。每一个 DataQueryOptions 类型的实例都对应唯一一个 DataClient 的实例。通过 DataQueryOptions 类型的实例，调用函数 query 来实现数据查询的业务功能。
-
-接口 DataResult 描述了数据处理结果的上下文结构，调用方通过这个类型的实例函数来获取相关的信息。
+如上图所示，SDK 主要是围绕以上两个类型展开：
 
 ## 如何使用 SDK
 
