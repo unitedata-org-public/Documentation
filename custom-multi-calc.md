@@ -9,3 +9,7 @@
 
 ![多方计算](https://github.com/unitedata-org-public/Documentation/blob/master/images/多方计算.png)
 
+如上图所示，多方计算分为两个阶段：
+
+1. 供应方使用多方计算对模型计算结果进行混淆加密
+2. 需求方接收到加密数据，并使用相应的方式对加密数据进行计算，同时得出结果
