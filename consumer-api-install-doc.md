@@ -8,7 +8,7 @@
 
 * 自行搭建服务器
 * 安装 jdk，版本 1.8 +
-* [下载数据服务 jar 包](https://github.com/unitedata-org-public/UD-Release/tree/master/ud-data-consumer-sdk)
+* [下载数据服务 jar 包](https://github.com/unitedata-org-public/UD-Release/tree/master/ud-data-consumer)
 * 解压包文件到指定的路径，并配置参数，具体配置请查看数据服务配置
 * 使用 jdk 运行下载的 jar 包
 * 打开浏览器，输入地址 http://{域名}/swagger-ui.html，看到下图
