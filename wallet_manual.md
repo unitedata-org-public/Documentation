@@ -2,11 +2,12 @@
 ## 创建账号
 ##### 基本流程：1.创建一个钱包和账号 -> 2.备份钱包 -> 3.创建成功
 1. 创建一个钱包和账号
-	* <img width=415 height=220 id="图片 1" src="images/image002.png">
+	* <img  id="图片 1" src="images/image002.png">
 	* 输入账号，密码，确认密码，勾选协议。点击【下一步】
 	* 注意点：账户名规则为5-12位，以小写字母+数字+点号组成，最后一位不能为点号。
 2.备份钱包
-	* <img width=446 height=220 id="图片 2" src="images/image003.png">
+
+	* <img  id="图片 2" src="images/image003.png">
 	* 点击【下载备份】按钮，将钱包备份文件保存到本地。
 3. 创建成功
 	* 提示账号创建成功，用户可选择进入首页。
@@ -17,8 +18,9 @@
 
 
 ##### 账户分为链积分账户和数积分账户
+
       
-   <img width=415 height=203 id="图片 8" src="images/image008.png"> 
+   <img  id="图片 8" src="images/image008.png"> 
 
     
 
@@ -35,49 +37,55 @@
 	* 基本流程：输入转账信息 -> 转账成功
 		* 输入发往账户，转账金额，备注信息（备注信息为选填）点击【立即转账】
 		* 输入钱包密码，确认转账。
-		* <img width=416 height=200 id="图片 9" src="images/image010.png">
+		* <img  id="图片 9" src="images/image010.png">
 4. 【解锁】
 	* 解锁：未使用的授信额度可通过解锁操作变成可用的链积分余额，同时授信余额也减少
 	* 输入解锁金额，点击【解锁】
 	* 输入钱包密码，点击【确定】
-	* <img width=415 height=190 id="图片 10" src="images/image012.png">
+	* <img  id="图片 10" src="images/image012.png">
 
 5. 【提额】
 	* 提额：提高授信余额，同时会按照一定比例锁定链积分资产到锁定余额中。
 	* 输入提升额度，预计锁定资产自动计算。点击【提升额度】
 	* 输入钱包密码，点击【确定】
-	* <img width=415 height=190 id="图片 11" src="images/image014.png">
+	* <img  id="图片 11" src="images/image014.png">
 
 6. 【还款】
  	* 还款：每月用授信额度消费，会在账单日产生账单。按期还款。可获得数积分额度。
 	* 基本流程：点击【立即还款】-> 输入钱包密码 -> 成功
-	* <img width=415 height=272 id="图片 12" src="images/image015.png">
+	* <img  id="图片 12" src="images/image015.png">
 7. 【购买/抵押资源】
     
     购买资源：账户页面-> 点击【购买/抵押】-> 输入购买资源数链-> 钱包密码-> 购买成功
     * 账户页面，点击【购买/抵押】 ，如图：
-    * <img width=410 height=220 id="图片 12" src="images/image11001.png">
+    
+    * <img id="图片 12" src="images/image11001.png">
     * 进入购买资源页面，输入购买信息。如图：
-    * <img width=415 height=220 id="图片 12" src="images/image11002.png">
+    
+    * <img  id="图片 12" src="images/image11002.png">
     * 点击【购买】，输入钱包密码，购买成功。
 8. 【出售/赎回资源】
 
     出售/赎回资源：账户页面->点击【出售/赎回】->输入出售资源数量->钱包密码->出售成功
     * 账户页面，点击【出售/赎回】 ，如图
-    * <img width=415 height=220 id="图片 12" src="images/image11003.png">
+    
+    * <img  id="图片 12" src="images/image11003.png">
     * 进入出售资源页面，输入出售信息。如图：
-    * <img width=415 height=220 id="图片 12" src="images/image11004.png">
+    
+    * <img  id="图片 12" src="images/image11004.png">
     * 点击【出售】，输入钱包密码，出售成功
 9. 交易查询
 	* 进入交易查询页面，可查看各个操作产生的链积分和数积分交易。
-	* <img width=400 height=150 id="图片 13" src="images/image016.png">
+	
+	* <img  id="图片 13" src="images/image016.png">
 
 ## 钱包管理
 1. 【创建钱包】
 基本流程：设置-> 钱包管理-> 创建钱包-> 创建钱包成功，返回钱包管理页
 	* 输入钱包名字，密码，确认密码，点击【创建钱包】
 	* 返回钱包管理页面，显示新创建的钱包
-	* <img width=415 height=185 id="图片 14" src="images/image018.png">
+	
+	* <img  id="图片 14" src="images/image018.png">
 2. 【导入私钥】
 
 	基本流程：点击【导入私钥】->导入私钥->返回钱包管理
@@ -85,15 +93,17 @@
 	* 钱包管理页面，选择需要导入私钥的钱包，点击【导入私钥】
 	* 输入私钥，钱包密码，点击【提交】
 	* 导入成功返回钱包页面
-	* <img width=395 height=180 id="图片 18" src="images/image019.png">
+	* <img  id="图片 18" src="images/image019.png">
 3. 【备份钱包】
 
 	基本流程：点击【备份钱包】->下载备份文件
 
 	* 钱包管理页面，选择需要备份钱包，点击【备份钱包】
-	* <img width=390 height=150 id="图片 20" src="images/image020.png">
+	
+	* <img  id="图片 20" src="images/image020.png">
 	* 点击下载备份
-	* <img width=380 height=168 id="图片 22" src="images/image021.png">
+	
+	* <img  id="图片 22" src="images/image021.png">
 	* 保存备份文件，下次即可用备份文件恢复钱包或者登录，切记钱包的密码
 	
 4. 【导入钱包】
@@ -101,9 +111,11 @@
 	基本流程：点击【导入钱包】-> 导入钱包文件 , 新钱包命名 -> 导入成功
 
 	* 钱包管理页面，点击【导入钱包】
-    * <img width=415 height=170 id="图片 25" src="images/image022.png">
+	
+    * <img  id="图片 25" src="images/image022.png">
     * 导入钱包备份文件，输入钱包密码。点击【下一步】
-    * <img width=415 height=233 id="图片 24" src="images/image023.png">
+    
+    * <img  id="图片 24" src="images/image023.png">
     * 导入成功，返回钱包管理页面
    
 5. 【修改钱包密码】
@@ -111,17 +123,20 @@
      基本流程：点击【修改钱包密码】-> 输入密码信息 -> 修改成功
 
     * 选择需要修改密码的钱包，点击图标（密码修改图标）
-    * <img width=400 height=170 id="图片 28" src="images/image026.png">
+    
+    * <img  id="图片 28" src="images/image026.png">
     * 输入钱包旧密码，新密码，和确认密码，点击【提交】
-    * <img width=415 height=170 id="图片 29" src="images/image027.png">
+    
+    * <img  id="图片 29" src="images/image027.png">
     * 修改成功
 
 ## 【设置】
 ##### 钱包账户列表
 ##### 钱包账户列表包含【查看私钥】和【忽略】账号功能
 1. 【查看私钥】
-    * 点击查看私钥，输入钱包密码。点击【确认】，即可查看私钥
-    * <img width=395 height=212 id="图片 32" src="images/image029.png">
+    * 点击查看私钥，输入钱包密码。点击【确认】，即可查看私钥,如图：
+    
+    * <img  id="图片 32" src="images/image029.png">
 2. 【忽略】
     * 点击忽略，即该账号未登录状态。
     * 取消忽略后，账后又为登录状态。

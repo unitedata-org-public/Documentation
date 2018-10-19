@@ -3,7 +3,8 @@
 ##### 基本流程：创建合约->登记合约->创建完成
 
 1. 选择合约中心下的【创建合约】菜单，进入创建合约页面，如图
-	<img width=415 height=197 id="图片 15" src="images/image033.png">
+
+	<img  id="图片 15" src="images/image033.png">
 
 2.选择合约类型，有默认合约和自定义合约两种类型。
 
@@ -18,6 +19,7 @@
 
 3. 补充合约信息，设置API详情，模型相关信息，合约属性，联系方式等
 	* API设置
+	
 		* <img width=250 height=246 id="图片 17" src="images/image034.png">
 
 	* 业务请求参数 
@@ -40,22 +42,28 @@
 ### 参与合约
 ##### 基本流程：选择参与的合约->点击【我要参与】->商户签约->参与成功
 1. 选择参与的合约。点击后进入合约详情
-	* <img width=415 height=150 id="图片 19" src="images/image035.png">
+
+	* <img  id="图片 19" src="images/image035.png">
 2. 点击【我要参与合约】进入确认参与页面，选择参与角色，输入钱包密码，参与成功。
-	* <img width=415 height=204 id="图片 21" src="images/image036.png">
+
+	* <img id="图片 21" src="images/image036.png">
 3. 提供方/需求方点击【签约】按钮，进行签约。另外一方进行确认后即达成合作
-	* <img width=415 height=217 id="图片 23" src="images/image037.png">
+
+	* <img  id="图片 23" src="images/image037.png">
 4. 参与成功
 5. 查看参与的合约
 	* 可以查看【创建的合约】和【参与的合约】，如图
-	* <img width=415 height=185 id="图片 31" src="images/image038.png">
+	
+	* <img id="图片 31" src="images/image038.png">
 
 ### 账户设置
 
   * 点击【账户设置】菜单，账号的联系方式，收款银行卡等信息
-  * <img width=415 height=175 id="图片 31" src="images/image0400.png">
+  
+  * <img  id="图片 31" src="images/image0400.png">
 
 ### 服务地址设置
 
   * 注意：提供方必须填写正确的服务提供地址，否则将无法正常提供数据服务
-  * <img width=415 height=185 id="图片 31" src="images/image0410.png">
+  
+  * <img  id="图片 31" src="images/image0410.png">
