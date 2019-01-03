@@ -19,7 +19,7 @@
 1. 此服务的功能为内部数据输出到外部的中转站，是部署在企业内部的系统，无需外部访问接口；
 2. 在黑名单业务中，此服务会保存上传的凭证及原始信息，以及返回给查询方的数据备份，同时服务中还包含了自动上传凭证及同步凭证状态的功能。
 3. 使用说明：
-	* 下载web服务包（请下载1.8.2版本）：[https://github.com/unitedata-org-public/UD-Release/tree/master/ud-eds](https://github.com/unitedata-org-public/UD-Release/tree/master/ud-eds)
+	* 下载web服务包：[https://github.com/unitedata-org-public/UD-Release/tree/master/ud-eds](https://github.com/unitedata-org-public/UD-Release/tree/master/ud-eds)
 	* 部署服务（部署方法请参考下载页说明）
 	* 通过api插入数据，或使用数链凭证上传工具进行上传，数据格式及详细信息请参考：[https://github.com/unitedata-org-public/UD-Release/blob/master/ud-eds/1.8.2/PROOF.md](https://github.com/unitedata-org-public/UD-Release/blob/master/ud-eds/1.8.2/PROOF.md)
 	* 系统会自动生成凭证，并且把凭证上传到链上，并且从链上同步数据状态，更新至blacklist_info表。
@@ -27,13 +27,13 @@
 #### 数据输出服务
 1. 此服务的功能是接受查询方的请求，并按合给模型返回数据，此服务需要访问数据桥接服务，以及需要开放对外访问端口；
 3. 使用说明：
-	* 下载系统(请下载1.8版本):[https://github.com/unitedata-org-public/UD-Release/tree/master/ud-data-producer](https://github.com/unitedata-org-public/UD-Release/tree/master/ud-data-producer)
+	* 下载系统:[https://github.com/unitedata-org-public/UD-Release/tree/master/ud-data-producer](https://github.com/unitedata-org-public/UD-Release/tree/master/ud-data-producer)
 	* 部署服务（部署方法请参考下载页说明）；
 	* 此服务通常不需要特别处理，保持服务正常运行即可。
 
 
 ### 黑名单数据查询
-1. 下载sdk(请下载1.8版本):[https://github.com/unitedata-org-public/UD-Release/tree/master/ud-data-consumer](https://github.com/unitedata-org-public/UD-Release/tree/master/ud-data-consumer)
+1. 下载sdk:[https://github.com/unitedata-org-public/UD-Release/tree/master/ud-data-consumer](https://github.com/unitedata-org-public/UD-Release/tree/master/ud-data-consumer)
 2. 相关说明请参照下载页说明
 3. 示例代码
 
@@ -79,6 +79,8 @@ public class DataQueryProtocolTest {
 }
 ````
 
+### 数据测试工具
+* [测试工具地址](https://github.com/unitedata-org-public/UD-Release/tree/master/ud-eds/1.9.2/test-tool)
 
 ### 特别说明
 * 以上涉及preview.unitedata.link域名的链接均为测试链地址，正式链请将改为：www.unitedata.link
