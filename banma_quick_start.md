@@ -48,7 +48,7 @@ POST
 
 * 通过密文生成工具，将明文二要素转换为密文文件
 	* java -jar test-tool-1.9.2.jar -gu 明文csv文件
-    * 数据转换代码？？？？？？？？？？？？？
+    * [数据转换代码](https://github.com/unitedata-org-public/UD-Release/blob/master/ud-eds/1.9.2/test-tool/src/main/java/org/unitedata/consumer/Main.java#L207)
 * 将密文文件通过上传工具页面上传
 ```
 http://localhost:8080/ud-eds/blacklist-upload
@@ -73,7 +73,7 @@ http://localhost:8080/ud-eds/blacklist-upload
 3. privacy_hash （逾期凭证）： （（姓名+身份证）MD5+逾期信息+时间戳+静态随机码）MD5 
 4. sign_hash （数字签名）： （逾期凭证）私钥签名
 
-注：random_code ：静态随机码，生成代码请查看？？？？？？？？？？？？？
+注：random_code ：静态随机码，[生成代码请查看](https://github.com/unitedata-org-public/UD-Release/blob/master/ud-eds/1.9.2/test-tool/src/main/java/org/unitedata/consumer/Main.java#L211)
 
 #### 黑名单凭证上链流程
 ![image](https://github.com/unitedata-org-public/UD-Release/blob/master/ud-eds/1.8.3/images/proof.png)
