@@ -11,7 +11,7 @@
 2. 注册数链账号，参与「斑马」合约。
 3. 参与合约:[https://preview.unitedata.link/exchange/contractDetail/22](https://preview.unitedata.link/exchange/contractDetail/22)
 4. 参与合约后可以在 [https://preview.unitedata.link/exchange/blacklist](https://preview.unitedata.link/exchange/blacklist) 查看相关信息
-![image](http://git.caimi-inc.com/UniteData/manager/uploads/32962d96b72424f4f9b5185ca30fcec6/image.png)
+![image](images/banma_quick_start.png)
 
 
 ### 提供方部署相关服务
