@@ -80,7 +80,7 @@ public class DataQueryProtocolTest {
 ````
 
 ### 数据测试工具
-* [测试工具地址](https://github.com/unitedata-org-public/UD-Release/tree/master/ud-eds/1.9.2/test-tool)
+* [测试工具地址](https://github.com/unitedata-org-public/ud-test-tool)
 
 ### 特别说明
 * 以上涉及preview.unitedata.link域名的链接均为测试链地址，正式链请将改为：www.unitedata.link
