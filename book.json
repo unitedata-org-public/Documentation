@@ -1,0 +1,19 @@
+{
+  "title": "Gitbook 站点示例",
+  "plugins": [
+    "anchors",
+    "git-author",
+    "expandable-chapters",
+    "advanced-emoji"
+  ],
+  "pluginsConfig": {
+    "theme-default": {
+      "showLevel": true
+    },
+    "git-author": {
+      "modifyTpl": "最后修改: {user} {timeStamp}",
+      "createTpl": "创建: {user} {timeStamp}",
+      "timeStampFormat": "YYYY/MM/DD HH:mm"
+    }
+  }
+}
