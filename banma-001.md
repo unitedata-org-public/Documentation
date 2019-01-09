@@ -108,7 +108,7 @@
 
 ````
 {
-	// 逾期金额枚举：small（小 <2k）、middle（中 2k-3k）、big（大 >3k）
+	// 逾期金额枚举：small、middle、big
 	"amount": "big",
 	//逾期类型：M1,M2,M3
 	"type": "M3",
