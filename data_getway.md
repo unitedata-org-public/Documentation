@@ -1,72 +1,173 @@
-# 数据桥接网关安装手册
-### JDK安装
-1.	进入orcale官网选择需要下载的版本jdk1.8.0_171
-	* 建议版本：jdk-8u171-linux-x64.rpm（建议安装1.8及以上）
-	* linux系统用命令行下载、安装和配置jdk1.8的详细步骤https://blog.csdn.net/zhangtxsir/article/details/72685357
-2.	安装jdk :rpm -ivh jdk-8u171-linux-x64.rpm
-	* 如果下载的是tar.gz包,直接用命令tar -zxvf jdk-8u171-linux-x64.tar.gz解压即可
-3.	配置环境变量
-	* 执行vi /etc/profile，在文件末尾添加
-	* export JAVA_HOME=/home/roo/jdk1.8.0_171  (这里修改为自己的jak安装路径)
-	* export PATH=$JAVA_HOME/bin:$PATH
-	* export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-4.	然后执行java -version看看是否配置成功
+# 数链项目服务部署
+-------------
+##### 数链数据提供包括：数据输出服务、数据桥接服务。当前提供几种部署方式：
+1. 由源码打包，然后进行部署
+2. 由release包来进行部署
+3. 由docker进行部署
 
-### Tomcat安装
-5.	下载解压tomcat（http://tomcat.apache.org/）建议：Tomcat 8.0
-建议下载zip或tar.gz直接解压使用
+# 由源码打包部署
+-------
+1.  源码的下载地址为：xxx @三板斧补充一下
+2. 进入unitedata/scripts目录，执行构建脚本：
+	* 若您是在windows系统下，执行
+    	
+    	````
+    	./start.bat;
+    	````
+	* 若您是在类unix系统下，执行
+	
+		````
+    	./start.sh
+    	````
+3. 若构建成功，将得到target/release目录，这里面将有bin, conf, lib三个包。
 
-### Mysql安装 
-6.	进入mysql官网选择需要下载的版本
-建议版本：Server version: 5.7.20 MySQL Community Server
-7.	设置用户名：例如：eds_root
-8.	设置密码：例如：eds_pass
-9.	设置端口：3306(建议使用默认端口)
+# 通过release包进行部署
+----------------
+1. 通过以下地址下载发布包：xxxx @三板斧补充一下
+2. 解压安装包：tar xzvf xxxx.tar.gz
+3. 配置
+	* 进入conf目录，为每项服务编辑配置文件。这几样服务的配置基本都是相似的，填入下述配置：
+	
+	````
+    #数链账户名
+    provider.account=xxx
+    #数链私钥
+    provider.key=xxx
 
-### 数据库导入
-##### 假设数据库文件目录：/Users/lufeng/Desktop/eds/ud_eds_db.sql
-1.	mysql -h localhost -u root -p（进入mysql下面）
-2.	create database xxx;(创建数据库)
-3.	show databases;(就可看到所有已经存在的数据库，及刚刚创建的数据库xxx)
-4.	use xxx;(进入xxx数据库下面)
-5.	show tables;(查看xxx数据库下面的所有表,空的)
-6.	source  /Users/lufeng/Desktop/eds/ud_eds_db.sql（导入数据库表）
-7.	show tables;(查看xxx数据库下面的所有表,就可以看到导入的表了)
+    #jdbc数据库连接信息
+    spring.datasource.druid.url=xxx
+    spring.datasource.druid.username=xxxx
+    spring.datasource.druid.password=xxxx
+    spring.datasource.druid.driver-class-name=com.mysql.jdbc.Driver
 
-### War包部署
-##### war包：ud-eds.war 企业内部系统web应用程序
-1.	将ud-eds.war放在Tomcat安装目录中的/webapps目录下
-2.	运行Tomcat（bin目录下执行：sudo sh startup.sh）
-3.	浏览器访问http://localhost:8080/ud-eds/ 测试部署是否成功
+    #redis连接信息
+    redis.host=localhost
+    redis.port=6379
+    redis.password=
+    redis.timeout=3000
+    redis.pool.max-active=8
+    redis.pool.max-wait=-1
+    redis.pool.max-idle=8
+    redis.pool.min-idle=0
+    ````
+4. Mysql初始化
+@三板斧补充一下
 
-### 修改配置文件
-1.	停止Tomcat（bin目录下执行：sh shutdown.sh）
-2.	打开Tomcat/webapps/ud-eds/WEB-INF/classes目录下的配置文件
-3.	修改application.properties文件中private.key用户私钥
-4.	修改application-druid.properties文件中：
-	* spring.datasource.druid.url(对应本地设置的mysql、数据库名称)
-	* spring.datasource.druid.username(对应本地设置的username)
-	* spring.datasource.druid.password(对应本地设置的password)
-5.	重新运行Tomcat（bin目录下执行：sudo sh startup.sh）
-	* 注意：修改项目配置文件.properties,需停止Tomcat。
-
-
-### 自定义类处理模式
-1.	自定义类xxx.java实现IChange接口：
-		public interface IChange {
+4. 启动服务
+	* 进入bin目录，启动服务。
+	* 启动命令格式:
+	
+		````
+	    ./start.sh [eds-server | zebra | producer]  [prod | test]
+		````	
+		* 其中第一部分：[eds-server | zebra | producer] 为服务名称
+		 	* producer： 数据输出服务
+			* eds-server： 数据桥接服务
+			* zebra： 斑马合约服务插件
+		* 第二部分：[prod | test] 为环境名称
+			* prod：为正式环境
+			* test：为测试环境
+		* 下面命令示例中以正式环境prod为例，如果要改成测试环境只需将prod改为test即可
+	* 启动数据输出服务命令：
+	
+		````
+		#正式环境
+	    ./start.sh producer  prod
+	    #测试环境
+	    ./start.sh producer  test
+		````
+	* 启动数据桥接服务命令：
 		
-		//获取需求方所需数据
-		    DataSet change(OutPutDefinitionVo outPutDefinitionVo, Map<String, String> params);
-		    //数据获取方式测试接口
-		    int validate(TableVo tableVo, OutPutDefinitionVo outPutDefinitionVo, Map<String, String> params);
-		}
-	* 注：
-		* SUCCESS(0,"测试通过!"),
-		* FAILURE(1,"测试不通过，无法获取数据!"),
-		* DISAGREE(2,"测试不通过，请检查数据是否与标准数据字典对应!");
+		````
+		./start.sh eds-server prod
+		````
+	* 启动斑马合约服务命令：
+		
+		````
+	    ./start.sh zebra prod
+		````
+	* 一次启动多个服务，服务名称只需用逗号分隔即可，如下命令正式环境启动所有服务
+	
+		````
+	    ./start.sh eds-server,zebra,producer  prod
+		````	
+	* 启动成功后，可以在logs目录下看到上述几个服务的启动日志。
 
-2.	编译自定义类为xxx.class
-3.	停止Tomcat（bin目录下执行：sh shutdown.sh）
-4.	将编译成功xxx.class文件放在…/Tomcat/webapps/ud-eds/WEB-INF/classes/org/unitedata/eds/core/change目录之下
-5.	重新运行Tomcat（bin目录下执行：sudo sh startup.sh）
+	* 如果您想关闭相应服务，同理：
+
+		````
+    	./shutdown.sh eds-server,zebra
+		````
+		
+# 数据桥接系统插件部署
+---------
+1. 数据桥接网关插件sdk下载地址为:xxxx @三板斧补充
+2. 插件的开发说明（@三板斧 https://github.com/unitedata-org-public/Documentation/blob/master/data_getway.md 这里有一点说明，你补充一下放到这里）
+3. 插件的发布：
+	* 将开发完的插件编译好后，将IChange实现类的class文件放入lib/biz，重启服务即可生效。
+
+
+通过docker镜像进行部署
+----------------
+### 启动步骤 
+
+1. 安装docker。可参考[链接](https://docs.docker-cn.com/engine/installation/)。
+2. 使用docker命令拉取镜像`sudo docker pull registry.cn-hangzhou.aliyuncs.com/ud-hushi/eds:v1.9.3`
+3. 确定主机的配置文件路径，这里用`[PATH_TO_CONF]`表示，在这一路径下，创建配置文件`zebra.properties`，完整文件格式请参照上文【通过release包进行部署】中的配置文件。
+    * 其中必须配置：
+        * 用户私钥：`provider.account, provider.key`
+        * redis相关：`redis.host, redis.port`
+        * jdbc数据库连接信息相关：`spring.datasource.druid.url, spring.datasource.druid.username, spring.datasource.druid.password`
+5. 确定主机的日志文件路径，这里用`[PATH_TO_LOGS]`表示。
+4. 启动镜像，命令如下。
+
+	```bash
+	$ docker run -it -d \ 
+	    -v [PATH_TO_LOGS]/logs/:/usr/local/ud-service/logs/ \
+	    -v [PATH_TO_CONF]/zebra.properties:/usr/local/ud-service/conf/zebra.properties \
+	    -p 8080:8080 -p 8091:8091 \
+	    registry.cn-hangzhou.aliyuncs.com/ud-hushi/eds:v1.9.3 eds-server,producer,zebra prod
+	```
+
+#### 注意： 
+* `[PATH_TO_LOGS]`，`[PATH_TO_CONF]`为主机路径，而非docker内路径
+* 启动后可以在`[PATH_TO_LOGS]/logs/`下查看各服务的日志，是否启动成功。
+* `-d`参数后台启动docker。
+* `-p 8080:8080 -p 8091:8091`，是容器内端口和主机端口之间的映射关系。
+* docker入口就是上述的start.sh，具体使用参考上面的介绍。`eds-server,producer,zebra`是启动的服务，`prod`是指定生产环境，如要改成测试环境将`prod`改为`test`。
+
+
+### 启动后如何进入docker
+
+容器启动后，使用命令`docker container ls`，可以查看当前运行中的容器。可以看到类似如下：
+
+```
+CONTAINER ID        IMAGE                                                   COMMAND                  CREATED             STATUS              PORTS                                            NAMES
+25de5fec6e78        registry.cn-hangzhou.aliyuncs.com/ud-hushi/eds:v1.9.3   "/bin/bash entry.sh …"   24 seconds ago      Up 21 seconds       0.0.0.0:8080->8080/tcp, 0.0.0.0:8091->8091/tcp   upbeat_matsumoto
+```
+
+使用命令`docker exec -it [CONTAINER ID] /bin/bash` 可以进入容器。
+
+### 镜像内目录介绍
+
+镜像中服务的根目录是`/usr/local/ud-service`，`/usr/local/ud-service`内目录结构如下：
+
+```
++-- bin
+|   +-- start.sh
+|   +-- shutdown.sh
++-- conf
+|   +-- zebra.properties
++-- lib
+|   +-- eds-server-1.9.3.jar
+|   +-- ud-data-producer-server-1.9.3.jar
+|   +-- ...
+|   +-- dependency
+|       +-- ...
++-- logs
+    +-- eds-server
+    |   +-- app.log
+    +-- producer-server
+        +-- app.log
+```
 
