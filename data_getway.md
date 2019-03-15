@@ -91,7 +91,7 @@ https://github.com/unitedata-org-public/UD-Release/blob/master/ud-eds/1.9.3/ud_e
 
 	* 启动成功后，可以在logs目录下看到上述几个服务的启动日志。
 
-	* 如果您想关闭相应服务，同理：
+	* 如果您想关闭相应服务，只需指定要关闭的服务名称，可用逗号分隔，下述示例关闭eds服务和斑马合约插件服务：
 
 		````
     	./shutdown.sh eds-server,zebra
