@@ -100,8 +100,13 @@ https://github.com/unitedata-org-public/UD-Release/blob/master/ud-eds/1.9.3/ud_e
 # 数据桥接系统插件部署
 ---------
 1. 下载源码eds-core包：https://github.com/unitedata-org/UniteData/tree/master/eds/eds-core
-2. 插件开发：依赖eds-core包，实现IChange类来实现具体的数据访问。具体示例可参见SqlChange.java和ExampleChange.java，地址：https://github.com/unitedata-org/UniteData/tree/master/eds/eds-core/src/main/java/org/unitedata/eds/core/change
+2. 插件开发：依赖eds-core包，实现IChange类来实现具体的数据访问。具体示例可参见SqlChange.java和ExampleChange.java.
 
+        * Eds作为数据桥接网关，自身不存储实际业务数据，当通过eds将数据输出时，它会通过IChange类请求真实的业务数据。它是一层需求方和真实数据之间的代理层。
+        * 实现validate接口：validate接口用于验证通过请求参数（params参数）所取得的结果集是否和配置的一致（table参数），在界面上点击“验证”时该接口会调用。
+        * 实现change接口：change接口的作用是传递请求参数（params参数），并向业务数据进行请求并得到业务数据。
+        * IChange与示例实现地址：https://github.com/unitedata-org/UniteData/tree/master/eds/eds-core/src/main/java/org/unitedata/eds/core/change.
+        
 3. 插件的发布：
 	* 将开发完的插件编译好后，将IChange实现类的class文件放入lib/biz，重启服务即可生效。
 
