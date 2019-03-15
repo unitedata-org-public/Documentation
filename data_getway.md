@@ -99,11 +99,10 @@ https://github.com/unitedata-org-public/UD-Release/blob/master/ud-eds/1.9.3/ud_e
 		
 # 数据桥接系统插件部署
 ---------
-1. 数据桥接网关插件sdk下载地址为: xxxx。
-2. 解压安装包：tar xzvf xxxx.tar.gz
-3. 插件开发：依赖eds-core包，实现IChange类来实现具体的数据访问。详细文档见
+1. 下载源码eds-core包：https://github.com/unitedata-org/UniteData/tree/master/eds/eds-core
+2. 插件开发：依赖eds-core包，实现IChange类来实现具体的数据访问。具体示例可参见SqlChange.java和ExampleChange.java，地址：https://github.com/unitedata-org/UniteData/tree/master/eds/eds-core/src/main/java/org/unitedata/eds/core/change
 
-4. 插件的发布：
+3. 插件的发布：
 	* 将开发完的插件编译好后，将IChange实现类的class文件放入lib/biz，重启服务即可生效。
 
 
