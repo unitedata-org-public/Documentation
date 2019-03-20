@@ -13,17 +13,13 @@
 https://help.unitedata.link/docs/%E9%92%B1%E5%8C%85%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C%E8%AF%B4%E6%98%8E/%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C.html
 
 
-*2 充值链积分*
-
-因为参与到斑马合约需要先质押一部分链积分（符号为UDT），所以需要在充值页面进行充值。（烦请蔚来帮助补充一下操作流程）
-
-*3 参与合约*
+*2 参与合约*
 
 访问数链数据交易所 https://www.unitedata.link/exchange/home， 选择“斑马合约”，在新弹出的页面选择“我要参与”。有任何疑问，见
 
 https://github.com/unitedata-org-public/Documentation/blob/master/banma_quick_start.md “参与合约”一节
 
-*4 准备数据*
+*3 准备数据*
 
 斑马合约要求用户将入黑用户的“特征指纹”上传到区块链中，以便将来查询时其他客户来对查得的数据做校验。所以需要准备好明文数据csv文件，格式为（姓名，身份证号，逾期信息）。
 
@@ -49,7 +45,7 @@ https://github.com/unitedata-org-public/Documentation/blob/master/banma_quick_st
 这个文件被称为“明文文件”
 
 
-*5 数据上传*
+*4 数据上传*
 
 * 工具下载：
 
@@ -61,7 +57,7 @@ https://github.com/unitedata-org-public/Documentation/blob/master/banma_quick_st
 
 这个命令将使得黑名单凭证信息上传到区块链上，并且会得到一个结果文件作为密文文件，请妥善保存这个密文文件，后续如果确定要使用数链斑马合约，会将这个密文文件里的信息存储到数据桥接服务（EDS系统）里面去。
 
-*6 数据查询*
+*5 数据查询*
 
 需要将要查询的文件转为（姓名，身份证）格式的csv，并用工具进行查询。详细说明请参考
 
