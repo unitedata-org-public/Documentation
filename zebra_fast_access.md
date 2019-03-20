@@ -49,7 +49,7 @@ https://github.com/unitedata-org-public/Documentation/blob/master/banma_quick_st
 
 * 工具下载：
 
-下载黑名单数据上传工具，地址：https://github.com/unitedata-org-public/ud-test-tool/releases，选择下载最新版本的test-tool.jar
+下载黑名单数据上传工具，地址：https://github.com/unitedata-org-public/ud-test-tool/releases ，选择下载最新版本的test-tool.jar
 
 * 上传数据：
 
