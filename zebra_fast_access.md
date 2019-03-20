@@ -53,7 +53,7 @@ https://github.com/unitedata-org-public/Documentation/blob/master/banma_quick_st
 
 * 上传数据：
 
-    java -jar xxx.jar  -o [结果文件名] -gtu [明文文件]   -a [数链账户名] -p [私钥] --eos-api-host https://www.unitedata.link/v1
+    java -jar test-tool.jar  -o [结果文件名] -gtu [明文文件]   -a [数链账户名] -p [私钥] --eos-api-host https://www.unitedata.link/v1
 
 这个命令将使得黑名单凭证信息上传到区块链上，并且会得到一个结果文件作为密文文件，请妥善保存这个密文文件，后续如果确定要使用数链斑马合约，会将这个密文文件里的信息存储到数据桥接服务（EDS系统）里面去。
 
