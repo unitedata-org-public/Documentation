@@ -49,13 +49,19 @@ https://github.com/unitedata-org-public/Documentation/blob/master/banma_quick_st
 
 * 工具下载：
 
-下载黑名单数据上传工具，地址：https://github.com/unitedata-org-public/ud-test-tool/releases ，选择下载最新版本的test-tool.jar
+下载斑马合约小工具，地址：https://github.com/unitedata-org-public/ud-test-tool/releases ，选择下载最新版本的test-tool.jar
 
-* 上传数据：
+* 将明文文件转换为贡献证明数据：
 
-    java -jar test-tool.jar  -o [结果文件名] -gtu [明文文件]   -a [数链账户名] -p [私钥] --eos-api-host https://www.unitedata.link/v1
+    java -jar zebra-tool.jar  -o [贡献证明文件] -gu [明文文件]  
 
-这个命令将使得黑名单凭证信息上传到区块链上，并且会得到一个结果文件作为密文文件，请妥善保存这个密文文件，后续如果确定要使用数链斑马合约，会将这个密文文件里的信息存储到数据桥接服务（EDS系统）里面去。
+这个命令将使得包含身份证、姓名、逾期信息的明文数据，转换成黑名单贡献证明文件。
+
+* 将贡献证明文件上传到区块链：
+
+    java -jar zebra-tool.jar  -o [待上传文件] -up [贡献证明文件]   -a [数链账户名] -p [私钥] --eos-api-host https://www.unitedata.link/v1
+
+这个命令将使得黑名单凭证信息上传到区块链上，并且会得到一个“待上传文件”，注意，请妥善保存这个文件，后续如果确定要使用数链斑马合约，在部署eds等设施后，会将这个密文文件里的信息存储到EDS系统里去，才能由其他查询方查询到你的数据！
 
 *5 数据查询*
 
