@@ -121,7 +121,6 @@ https://github.com/unitedata-org-public/UD-Release/blob/master/ud-eds/1.9.3/ud_e
     * 其中必须配置：
         * 用户私钥：`provider.account, provider.key`
         * jdbc数据库连接信息相关：`spring.datasource.druid.url, spring.datasource.druid.username, spring.datasource.druid.password`
-    * 注意，如果通过docker镜像进行部署，则不再需要配置redis，因为该docker镜像内部自带了redis服务。
 5. 确定主机的日志文件路径，这里用`[PATH_TO_LOGS]`表示。
 4. 启动镜像，命令如下。
 
