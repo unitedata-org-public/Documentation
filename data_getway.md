@@ -96,6 +96,11 @@ https://github.com/unitedata-org-public/UD-Release/blob/master/ud-eds/1.9.3/ud_e
 		````
     	./shutdown.sh eds-server,zebra
 		````
+	* 如果eds和提供方服务部署在不同的服务器上，则启动提供方服务前，需要在配置zebra.properties中加入对应的eds地址，例如：
+		
+		````
+	    eds.api=http://yourserver/ud-eds/
+		````
 		
 # 数据桥接系统插件部署
 ---------
@@ -150,6 +155,15 @@ CONTAINER ID        IMAGE                                                   COMM
 ```
 
 使用命令`docker exec -it [CONTAINER ID] /bin/bash` 可以进入容器。
+
+### 分离部署eds和提供方服务
+
+如果eds和提供方服务部署在不同的服务器上，则启动提供方服务前，需要在配置zebra.properties中加入对应的eds地址，例如：
+		
+```
+eds.api=http://yourserver/ud-eds/
+```
+		
 
 ### 镜像内目录介绍
 
