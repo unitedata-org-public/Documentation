@@ -127,14 +127,14 @@ https://github.com/unitedata-org-public/UD-Release/blob/master/ud-eds/1.9.3/ud_e
         * 用户私钥：`provider.account, provider.key`
         * jdbc数据库连接信息相关：`spring.datasource.druid.url, spring.datasource.druid.username, spring.datasource.druid.password`
 5. 确定主机的日志文件路径，这里用`[PATH_TO_LOGS]`表示。
-4. 启动镜像，命令如下。
+4. 启动镜像，命令如下。以下示例为启动eds-server。对于zebra，producer，启动方式相同。
 
 	```bash
 	$ docker run -it -d \ 
 	    -v [PATH_TO_LOGS]/logs/:/usr/local/ud-service/logs/ \
 	    -v [PATH_TO_CONF]/zebra.properties:/usr/local/ud-service/conf/zebra.properties \
-	    -p 8080:8080 -p 8091:8091 \
-	    registry.cn-hangzhou.aliyuncs.com/ud-hushi/eds:v1.9.3 eds-server,producer,zebra prod
+	    --network host \
+	    registry.cn-hangzhou.aliyuncs.com/ud-hushi/eds:v1.9.3 eds-server -s prod -po 8080
 	```
 
 #### 注意： 
@@ -188,3 +188,9 @@ eds.api=http://yourserver/ud-eds/
         +-- app.log
 ```
 
+部署后的检验
+----------------
+### 提供方部署检验 
+
+1. 通过浏览器访问提供方服务的配置读取api：/health/config，确保所有的配置都如期配置。
+2. 通过浏览器访问提供方服务的健康检测api：/health/，确保各个组件都显示"OK"。
