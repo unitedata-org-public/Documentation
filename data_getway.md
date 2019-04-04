@@ -101,6 +101,7 @@ https://github.com/unitedata-org-public/UD-Release/blob/master/ud-eds/1.9.3/ud_e
 		````
 	    eds.api=http://yourserver/ud-eds/
 		````
+	 否则提供方会默认以http://localhost:8080/ud-eds 来访问eds
 		
 # 数据桥接系统插件部署
 ---------
@@ -163,7 +164,7 @@ CONTAINER ID        IMAGE                                                   COMM
 ```
 eds.api=http://yourserver/ud-eds/
 ```
-		
+ 否则提供方会默认以http://localhost:8080/ud-eds 来访问eds		
 
 ### 镜像内目录介绍
 
