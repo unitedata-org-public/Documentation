@@ -65,6 +65,7 @@ https://github.com/unitedata-org-public/UD-Release/blob/master/ud-eds/1.9.3/ud_e
 		 	* producer： 数据输出服务
 			* eds-server： 数据桥接服务
 			* zebra： 斑马合约服务插件
+			* eds-cert:  存证服务插件
 		* 第二部分：[prod | test] 为环境名称
 			* prod：为正式环境
 			* test：为测试环境
