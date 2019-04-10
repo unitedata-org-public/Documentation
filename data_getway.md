@@ -26,7 +26,7 @@
 1. 通过以下地址下载发布包：xxxx @三板斧补充一下
 2. 解压安装包：tar xzvf xxxx.tar.gz
 3. 配置
-	* 进入conf目录，为每项服务编辑配置文件。zebra.properties里填入下述必选配置，主要是数链账户信息、数据库信息、redis信息：
+	* 进入conf目录，为每项服务编辑配置文件。ud.properties里填入下述必选配置，主要是数链账户信息、数据库信息、redis信息：
 	
 	````
     #数链账户名
@@ -97,7 +97,7 @@ https://github.com/unitedata-org-public/UD-Release/blob/master/ud-eds/1.9.3/ud_e
 		````
     	./shutdown.sh eds-server,zebra
 		````
-	* 如果eds和提供方服务部署在不同的服务器上，则启动提供方服务前，需要在配置zebra.properties中加入对应的eds地址，例如：
+	* 如果eds和提供方服务部署在不同的服务器上，则启动提供方服务前，需要在配置ud.properties中加入对应的eds地址，例如：
 		
 		````
 	    eds.api=http://yourserver/ud-eds/
@@ -124,7 +124,7 @@ https://github.com/unitedata-org-public/UD-Release/blob/master/ud-eds/1.9.3/ud_e
 
 1. 安装docker。可参考[链接](https://docs.docker-cn.com/engine/installation/)。
 2. 使用docker命令拉取镜像`sudo docker pull registry.cn-hangzhou.aliyuncs.com/ud-hushi/eds:v1.9.3`
-3. 确定主机的配置文件路径，这里用`[PATH_TO_CONF]`表示，在这一路径下，创建配置文件`zebra.properties`，完整文件格式请参照上文【通过release包进行部署】中的配置文件。
+3. 确定主机的配置文件路径，这里用`[PATH_TO_CONF]`表示，在这一路径下，创建配置文件`ud.properties`，完整文件格式请参照上文【通过release包进行部署】中的配置文件。
     * 其中必须配置：
         * 用户私钥：`provider.account, provider.key`
         * jdbc数据库连接信息相关：`spring.datasource.druid.url, spring.datasource.druid.username, spring.datasource.druid.password`
@@ -134,7 +134,7 @@ https://github.com/unitedata-org-public/UD-Release/blob/master/ud-eds/1.9.3/ud_e
 	```bash
 	$ docker run -it -d \ 
 	    -v [PATH_TO_LOGS]/logs/:/usr/local/ud-service/logs/ \
-	    -v [PATH_TO_CONF]/zebra.properties:/usr/local/ud-service/conf/zebra.properties \
+	    -v [PATH_TO_CONF]/ud.properties:/usr/local/ud-service/conf/ud.properties \
 	    --network host \
 	    registry.cn-hangzhou.aliyuncs.com/ud-hushi/eds:v1.9.3 eds-server -s prod -po 8080
 	```
@@ -160,7 +160,7 @@ CONTAINER ID        IMAGE                                                   COMM
 
 ### 分离部署eds和提供方服务
 
-如果eds和提供方服务部署在不同的服务器上，则启动提供方服务前，需要在配置zebra.properties中加入对应的eds地址，例如：
+如果eds和提供方服务部署在不同的服务器上，则启动提供方服务前，需要在配置ud.properties中加入对应的eds地址，例如：
 		
 ```
 eds.api=http://yourserver/ud-eds/
@@ -176,7 +176,7 @@ eds.api=http://yourserver/ud-eds/
 |   +-- start.sh
 |   +-- shutdown.sh
 +-- conf
-|   +-- zebra.properties
+|   +-- ud.properties
 +-- lib
 |   +-- eds-server-1.9.3.jar
 |   +-- ud-data-producer-server-1.9.3.jar
