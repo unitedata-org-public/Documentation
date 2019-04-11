@@ -4,11 +4,15 @@
 
 **角色**
 
+
     查询方：富数
     mapping提供方：泰岳
     画像提供方：游族
 
-**测试安排**
+**测试安排** 
+
+
+### 准备工作
 
 1 在数链上进行合约的创建（此步由富数进行）
 
@@ -29,49 +33,24 @@
 
 登录数链交易所，请@蔚来帮忙看下怎么参与
 
-4 泰岳/游族的数链程序启动
+### 泰岳/游族的数链程序启动（泰岳游族各自实施）
 
-*准备工作*
+1. 准备工作. 准备至少一台服务器，并确保mysql、redis组件可用
+2. 发布包安装. 下载发布包，链接地址：（链接待发布后补充）
+3. 配置、mysql初始化、启动：https://github.com/unitedata-org-public/Documentation/blob/master/data_getway.md 见"通过release包进行部署"一节。
+4. 验证启动是否成功. 访问logs目录，查看eds和提供方日志启动是否有报错。
 
-准备至少一台服务器，并确保mysql、redis组件可用
 
-*发布包安装*
 
-下载发布包，链接地址：（链接待发布后补充）
-
-*配置*
-
-解压发布包，进入conf目录，填写数链账户名、私钥、mysql、redis链接信息。
-
-*启动*
-
-解压发布包，进入bin目录
-
-    启动eds
-    
-    bash start.sh eds-server test 8080
-    
-    启动提供方服务
-    
-    bash start.sh producer test 8091
-
-*验证启动是否成功*
-
-访问logs目录，查看eds和提供方日志启动是否有报错。
-
-*关于更多eds/提供方启动的文档，请参考*
-
-https://github.com/unitedata-org-public/Documentation/blob/master/data_getway.md
-
-5 泰岳的mapping方插件部署（由泰岳实施）
+### 泰岳的mapping方插件部署（由泰岳实施）
 
 将泰岳的mapping方插件jar包放到服务器内%JRE_HOME%/ext/lib中，这样就能被后续eds启动时加载到。重启eds。
 
-6 游族的画像插件部署（由游族实施）
+### 游族的画像插件部署（由游族实施）
 
 将画像插件放到服务器内%JRE_HOME%/ext/lib中，这样就能被后续eds启动时加载到。重启eds。
 
-7 绑定数据字典与插件（游族泰岳各自实施）
+### 绑定数据字典与插件（游族泰岳各自实施）
 
 
 登入eds，选择数据字典对应合约，选择“接入配置”
