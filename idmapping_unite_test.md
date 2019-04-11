@@ -37,8 +37,20 @@
 
 1. 准备工作. 准备至少一台服务器，并确保mysql、redis组件可用
 2. 发布包安装. 下载发布包，链接地址：（链接待发布后补充）
-3. 配置、mysql初始化、启动：https://github.com/unitedata-org-public/Documentation/blob/master/data_getway.md 见"通过release包进行部署"一节。
-4. 验证启动是否成功. 访问logs目录，查看eds和提供方日志启动是否有报错。
+3. 配置、mysql初始化 ：https://github.com/unitedata-org-public/Documentation/blob/master/data_getway.md 见"通过release包进行部署"一节。
+4. 启动
+eds:
+		
+		````
+	    ./start.sh eds-server test 8080
+		````
+提供方：
+		
+		````
+	    ./start.sh producer test 8091
+		````
+
+5. 验证启动是否成功. 访问logs目录，查看eds和提供方日志启动是否有报错。
 
 
 
