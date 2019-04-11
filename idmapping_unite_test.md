@@ -59,7 +59,7 @@
 
 访问logs目录，查看eds和提供方日志启动是否有报错。
 
-*关于更多eds启动的文档，请参考*
+*关于更多eds/提供方启动的文档，请参考*
 
 https://github.com/unitedata-org-public/Documentation/blob/master/data_getway.md
 
@@ -71,7 +71,7 @@ https://github.com/unitedata-org-public/Documentation/blob/master/data_getway.md
 
 将画像插件放到服务器内%JRE_HOME%/ext/lib中，这样就能被后续eds启动时加载到。重启eds。
 
-7 绑定数据字典与插件
+7 绑定数据字典与插件（游族泰岳各自实施）
 
 
 登入eds，选择数据字典对应合约，选择“接入配置”
