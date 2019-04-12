@@ -69,11 +69,11 @@ eds:
 
 ### 泰岳的mapping方插件部署（由泰岳实施）
 
-将泰岳的mapping方插件jar包放到服务器内%JRE_HOME%/ext/lib中，这样就能被后续eds启动时加载到。重启eds。
+将泰岳的mapping方插件jar包或class包放到发布包lib/biz中，这样就能被后续eds启动时加载到。重启eds。
 
 ### 游族的画像插件部署（由游族实施）
 
-将画像插件jar包放到服务器内%JRE_HOME%/ext/lib中，这样就能被后续eds启动时加载到。重启eds。
+将画像插件jar包或class包放到发布包lib/biz中，这样就能被后续eds启动时加载到。重启eds。
 
 ### 绑定数据字典与插件（游族泰岳各自实施）
 
