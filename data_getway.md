@@ -115,7 +115,7 @@ https://github.com/unitedata-org-public/UD-Release/blob/master/ud-eds/1.9.3/ud_e
         * IChange与示例实现地址：https://github.com/unitedata-org/UniteData/tree/master/eds/eds-core/src/main/java/org/unitedata/eds/core/change.
         
 3. 插件的发布：
-	* 将开发完的插件编译好后，将IChange实现类对应的jar包放到%JRE_HOME%/lib/ext下面，这样运行时扩展类加载器将可以加载到你的插件。
+	* 将开发完的插件编译好后，将IChange实现类对应的jar包或class包放到发布包/lib/biz下面，这样运行时扩展类加载器将可以加载到你的插件。
 
 
 通过docker镜像进行部署
