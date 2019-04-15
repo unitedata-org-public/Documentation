@@ -103,6 +103,8 @@ https://github.com/unitedata-org-public/UD-Release/blob/master/ud-eds/1.9.3/ud_e
 	    eds.api=http://yourserver/ud-eds/
 		````
 	 否则提供方会默认以http://localhost:8080/ud-eds 来访问eds
+	 
+	 * 登录EDS的时候会出现login界面，初始用户名：admin 初始密码：123456
 		
 # 数据桥接系统插件部署
 ---------
