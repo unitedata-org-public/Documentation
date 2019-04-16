@@ -105,6 +105,7 @@ https://github.com/unitedata-org-public/UD-Release/blob/master/ud-eds/1.9.3/ud_e
 	 否则提供方会默认以http://localhost:8080/ud-eds 来访问eds
 	 
 	 * 登录EDS的时候会出现login界面，初始用户名：admin 初始密码：123456
+	 * EDS的端口务必只对内网可见！务必只对内网可见！务必只对内网可见！
 		
 # 数据桥接系统插件部署
 ---------
@@ -196,5 +197,5 @@ eds.api=http://yourserver/ud-eds/
 ----------------
 ### 提供方部署检验 
 
-1. 通过浏览器访问提供方服务的配置读取api：/health/config，确保所有的配置都如期配置。
-2. 通过浏览器访问提供方服务的健康检测api：/health/，确保各个组件都显示"OK"。
+1. 通过浏览器访问提供方服务的配置读取api：/health_check/config，确保所有的配置都如期配置。 注意，出于安全性原因，私钥并不会被显示，而是以公钥形式展示。
+2. 通过浏览器访问提供方服务的健康检测api：/health_check/，确保各个组件都显示"OK"。
