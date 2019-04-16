@@ -199,3 +199,7 @@ eds.api=http://yourserver/ud-eds/
 
 1. 通过浏览器访问提供方服务的配置读取api：/health_check/config，确保所有的配置都如期配置。 注意，出于安全性原因，私钥并不会被显示，而是以公钥形式展示。
 2. 通过浏览器访问提供方服务的健康检测api：/health_check/，确保各个组件都显示"OK"。
+
+### EDS部署检验
+
+1. 通过浏览器访问配置读取api：/health，确保各个依赖组件都显示"UP"
