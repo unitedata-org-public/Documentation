@@ -120,10 +120,10 @@ RSA签名代码见后文。
 
 ## 无SDK接入——提供方
 
-* 将查询中的存证提取出来，存证结构参考上文
-* 验证存证签名，签名代码见后文
-* 验证存证中的协议摘要、bizid是否与当前业务符合。
-* 调用数链公共服务，将存证存储到数链，参考https://github.com/unitedata-org-public/UD-Release/blob/master/ud-proxy/api.md#%E7%AE%80%E5%8D%95%E5%AD%98%E8%AF%81
+**将查询中的存证提取出来，存证结构参考上文**
+**验证存证中的协议摘要、bizid是否与当前业务符合。**
+**验证存证签名，摘要获取见上文，验证方式调用RSA签名的验签方法verifySignature**
+**调用数链公共服务，将存证存储到数链，参考https://github.com/unitedata-org-public/UD-Release/blob/master/ud-proxy/api.md#%E7%AE%80%E5%8D%95%E5%AD%98%E8%AF%81**
 
 ## 附：RSA签名代码
 
@@ -196,9 +196,11 @@ RSA签名代码不借助任何第三方库即可实现。如下：
 ## 通过sdk接入-业务方
 
 **依赖存证sdk**
+
 请联系相关人员获取到sdk，并在项目中依赖此sdk
 
 **进行存证创建**
+
 只要调用ConsumerFacade进行调用即可。示例：
 
     private static CertificationConfiguration configuration;
@@ -224,10 +226,12 @@ RSA签名代码不借助任何第三方库即可实现。如下：
 ## 通过sdk接入-提供方
 
 **依赖存证sdk**
+
 请联系相关人员获取到sdk，并在项目中依赖此sdk
 
 **从业务方查询中提取出存证**
-这一步由提供方自行实现，存证数据结构见相关文档
+
+这一步由提供方自行实现，存证数据结构见上文或Certification类
 
 **创建配置，并处理存证对象**
 
