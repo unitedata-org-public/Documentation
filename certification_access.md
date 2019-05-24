@@ -54,7 +54,7 @@
         private long timestamp;
     
         /**
-         * 签名方式，可以为空，默认即采用RSA签名
+         * 签名方式，可以为空，默认即采用EOS签名方式
          */
         private String encryptType;
     
@@ -151,7 +151,7 @@
     private static CertificationConfiguration configuration;
     public static void example(){
         if(configuration == null) {
-            configuration = ConsumerFacade.consumeConfig("[业务方账户]", "[RSA私钥]", "[RSA公钥]");
+            configuration = ConsumerFacade.consumeConfig("[业务方账户]", "[私钥]", "[公钥]");
         }
 
         Map<String, Object> userInfo = new HashMap<>();//用户信息
