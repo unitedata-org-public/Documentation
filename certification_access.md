@@ -136,7 +136,12 @@
 
 只需如下调用即可获得签名：
        
-       String sig = CryptoUtils.doEosSignature(digest, "[私钥]")
+       String sig = CryptoUtils.doEosSignature("[原文]", "[私钥]")
+
+验证签名：
+       
+       boolean verified = CryptoUtils.verifyMsg("签名者公钥", "[签名]", "[原文]")
+
 
 ## 通过sdk接入-业务方
 
