@@ -103,18 +103,17 @@
 
 **填充签名**
 
-对存证的digest执行RSA签名，并填入存证的directSignature。摘要获取代码：
+对存证的digest执行签名，并填入存证的directSignature。摘要获取代码：
 
      Certification cert = buildCert();//存证创建
      String digest = cert.getDigest();//获取存证摘要
 
-对digest调用RSA签名：
+对digest调用签名：
 
-    SignatureHandler rsaSig = new RSASignatureHandler();
-    cert.setDirectSignature(rsaSig.generateSignatureString(digest, "[RSA私钥]"));
-    cert.setPublicKey("[RSA公钥]");
+    cert.setDirectSignature(CryptoUtils.doEosSignature(digest, "[私钥]"));
+    cert.setPublicKey("[公钥]");
 
-RSA签名代码见后文。
+签名代码见后文。
 
 **业务方将此存证放入查询，发送给数据提供方。**
 
@@ -122,76 +121,22 @@ RSA签名代码见后文。
 
 **将查询中的存证提取出来，存证结构参考上文**
 **验证存证中的协议摘要、bizid是否与当前业务符合。**
-**验证存证签名，摘要获取见上文，验证方式调用RSA签名的验签方法verifySignature**
+**验证存证签名，摘要获取见上文，验证方式调用签名的验签方法verifyMsg**
 **调用数链公共服务，将存证存储到数链，参考https://github.com/unitedata-org-public/UD-Release/blob/master/ud-proxy/api.md#%E7%AE%80%E5%8D%95%E5%AD%98%E8%AF%81**
 
-## 附：RSA签名代码
+## 附：签名代码
 
-RSA签名代码不借助任何第三方库即可实现。如下：
+签名需要依赖一个数链专用签名库：
 
-    public class RSASignatureHandler implements SignatureHandler{
-    
-        public static final String RSA = "RSA";
-    
-        /**
-         * 签名算法
-         */
-        private static final String SIGN_ALGORITHMS = "SHA1WithRSA";
-    
-        @Override
-        public String getAlias() {
-            return RSA;
-        }
-    
-        @Override
-        public byte[] generateSignature(byte[] content, String privateKey) {
-            try {
-                PKCS8EncodedKeySpec priPKCS8 = new PKCS8EncodedKeySpec(EncodeUtils.fromBase64(privateKey));
-                KeyFactory keyf = KeyFactory.getInstance(RSA);
-                PrivateKey priKey = keyf.generatePrivate(priPKCS8);
-                java.security.Signature signature = java.security.Signature.getInstance(SIGN_ALGORITHMS);
-                signature.initSign(priKey);
-                signature.update(content);
-                byte[] signed = signature.sign();
-                return signed;
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-    
-        @Override
-        public String generateSignatureString(byte[] content, String privateKey) {
-            String signed = EncodeUtils.toBase64(generateSignature(content, privateKey));
-            return signed;
-        }
-    
-        @Override
-        public String generateSignatureString(String content, String privateKey) {
-            return generateSignatureString(content.getBytes(Charset.forName("UTF-8")), privateKey);
-        }
-    
-        @Override
-        public boolean verifySignature(String content, String cypher, String publicKey) {
-            try {
-                KeyFactory keyFactory = KeyFactory.getInstance(RSA);
-                byte[] encodedKey = EncodeUtils.fromBase64(publicKey);
-                PublicKey pubKey = keyFactory.generatePublic(new X509EncodedKeySpec(encodedKey));
-                Signature signature = Signature
-                        .getInstance(SIGN_ALGORITHMS);
-    
-                signature.initVerify(pubKey);
-                signature.update(content.getBytes());
-    
-                boolean bverify = signature.verify(EncodeUtils.fromBase64(cypher));
-                return bverify;
-    
-            } catch (Exception e) {
-                log.error("Error verify ",e);
-                return false;
-            }
-        }
-    }
+       <dependency>
+            <groupId>org.unitedata</groupId>
+            <artifactId>ud-crypto</artifactId>
+            <version>1.0.0</version>
+        </dependency>
 
+只需如下调用即可获得签名：
+       
+       String sig = CryptoUtils.doEosSignature(digest, "[私钥]")
 
 ## 通过sdk接入-业务方
 
