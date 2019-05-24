@@ -103,15 +103,12 @@
 
 **填充签名**
 
-对存证的digest执行签名，并填入存证的directSignature。摘要获取代码：
+对存证的digest执行签名，代码：
 
      Certification cert = buildCert();//存证创建
      String digest = cert.getDigest();//获取存证摘要
-
-对digest调用签名：
-
-    cert.setDirectSignature(CryptoUtils.doEosSignature(digest, "[私钥]"));
-    cert.setPublicKey("[公钥]");
+     cert.setDirectSignature(CryptoUtils.doEosSignature(digest, "[私钥]"));
+     cert.setPublicKey("[公钥]");
 
 签名代码见后文。
 
