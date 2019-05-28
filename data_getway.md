@@ -23,7 +23,7 @@
 
 # 通过release包进行部署
 ----------------
-1. 通过以下地址下载发布包：xxxx @三板斧补充一下
+1. 通过以下地址下载发布包：https://github.com/unitedata-org-public/UD-Release/releases
 2. 解压安装包：tar xzvf xxxx.tar.gz
 3. 配置
 	* 进入conf目录，为每项服务编辑配置文件。ud.properties里填入下述必选配置，主要是数链账户信息、数据库信息、redis信息：
